@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.all
+    @posts = Post.all
   end
 
   def show
@@ -12,4 +13,10 @@ class PostsController < ApplicationController
   end
 
   # add create method here
+  def create
+    @post = Post.create(
+    title: params[:title],
+     description: params[:description])
+    redirect_to posts_path(@post) 
+  end 
 end
